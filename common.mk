@@ -491,13 +491,10 @@ PRODUCT_PACKAGES += \
     libnl \
     libwfdaac_vendor
 
-# Product namespace
-PRODUCT_BOARD_PLATFORM := atoll
-PRODUCT_USES_QCOM_HARDWARE := true
-
-# Protobuf
-PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full-3.9.1-vendorcompat
+# WiFi firmware symlinks
+ PRODUCT_PACKAGES += \
+     firmware_wlan_mac.bin_symlink \
+     firmware_WCNSS_qcom_cfg.ini_symlink
 
 # HAX
 PRODUCT_PACKAGES += \
