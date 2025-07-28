@@ -110,7 +110,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     disable_configstore \
     gralloc.atoll \
-    hwcomposer.atoll \
+    hwcomposer.qcom \
     libdisplayconfig.qti \
     libdisplayconfig.qti.vendor \
     libqdMetaData \
