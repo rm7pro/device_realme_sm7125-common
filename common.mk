@@ -234,7 +234,6 @@ PRODUCT_PACKAGES += \
 # Vendor shell scripts
 PRODUCT_PACKAGES += \
     init.at.class_main.sh \
-    init.qcom.class_core.sh \
     init.qcom.sdio.sh \
     init.qti.dcvs.sh \
     init.at.post_boot.sh \
