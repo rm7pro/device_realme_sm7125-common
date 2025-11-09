@@ -70,13 +70,11 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    audio.bluetooth.default \
-    libbthost_if
+    audio.bluetooth.default 
 
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio-impl \
     libldacBT_abr \
-    libldacBT_bco \
     libldacBT_enc \
     vendor.qti.hardware.btconfigstore@1.0.vendor \
     vendor.qti.hardware.btconfigstore@2.0.vendor
@@ -114,7 +112,6 @@ PRODUCT_PACKAGES += \
     gralloc.qcom \
     hwcomposer.qcom \
     libdisplayconfig.qti \
-    libdisplayconfig.qti.vendor \
     libqdMetaData \
     libtinyxml \
     libgui_vendor \
@@ -123,7 +120,6 @@ PRODUCT_PACKAGES += \
     libvulkan
 
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.4-impl \
     android.hardware.graphics.composer@2.4-service \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
@@ -274,10 +270,6 @@ PRODUCT_PACKAGES += \
 
 $(call soong_config_set,livedisplay_sdm,enable_dm,false)
 
-# Media
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm
-
 # Logging
 SPAMMY_LOG_TAGS := \
     MiStcImpl \
@@ -366,10 +358,6 @@ PRODUCT_PACKAGES += \
     libqti_vndfwk_detect.vendor \
     libvndfwk_detect_jni.qti.vendor
 
-# Ramdisk
-PRODUCT_PACKAGES += \
-    init.safailnet.rc
-
 # RCS
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager \
@@ -420,10 +408,6 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/xiaomi
-
-# Spatial Audio
-PRODUCT_PACKAGES += \
-    frameworks/native/data/etc/android.hardware.sensor.dynamic.head_tracker.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.dynamic.head_tracker.xml
 
 # Speed profile services and wifi-service to reduce RAM and storage
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
@@ -548,7 +532,6 @@ PRODUCT_PACKAGES += \
     android.frameworks.cameraservice.service@2.1.vendor \
     android.frameworks.displayservice@1.0.vendor \
     android.frameworks.schedulerservice@1.0.vendor \
-    android.frameworks.serservice@1.0.vendor \
     android.frameworks.stats@1.0.vendor \
     android.hardware.atrace@1.0.vendor \
     android.hardware.audio.common@4.0.vendor \
@@ -664,19 +647,12 @@ PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.0.vendor \
     android.hardware.secure_element@1.1.vendor \
     android.hardware.secure_element@1.2.vendor \
-    android.hardware.sers@1.0.vendor \
-    android.hardware.sers@2.0.vendor \
-    android.hardware.sers@2.1.vendor \
-    android.hardwareundtrigger@2.1.vendor \
-    android.hardwareundtrigger@2.2.vendor \
-    android.hardwareundtrigger@2.3.vendor \
     android.hardware.tetheroffload.config@1.0.vendor \
     android.hardware.tetheroffload.control@1.0.vendor \
     android.hardware.thermal@1.0.vendor \
     android.hardware.thermal@1.1.vendor \
     android.hardware.thermal@2.0.vendor \
     android.hardware.tv.cec@1.0.vendor \
-    android.hardware.tv.cec@2.0.vendor \
     android.hardware.tv.input@1.0.vendor \
     android.hardware.tv.tuner@1.0.vendor \
     android.hardware.usb.gadget@1.0.vendor \
@@ -693,7 +669,6 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi.hostapd@1.0.vendor \
     android.hardware.wifi.hostapd@1.1.vendor \
     android.hardware.wifi.hostapd@1.2.vendor \
-    android.hardware.wifi.offload@1.0.vendor \
     android.hardware.wifi.supplicant@1.0.vendor \
     android.hardware.wifi.supplicant@1.1.vendor \
     android.hardware.wifi.supplicant@1.2.vendor \
@@ -708,9 +683,7 @@ PRODUCT_PACKAGES += \
     android.system.net.netd@1.0.vendor \
     android.system.net.netd@1.1.vendor \
     android.system.wifi.keystore@1.0.vendor \
-    libadf.vendor \
     libstdc++_vendor \
     vendor.qti.hardware.camera.device@1.0.vendor \
-    libtinyxml.vendor \
     libpng.vendor \
     libsqlite.vendor    
