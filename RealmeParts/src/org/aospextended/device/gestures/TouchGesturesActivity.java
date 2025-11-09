@@ -20,17 +20,15 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
-import com.android.settingslib.widget.R;
-
-public class TouchGesturesActivity extends CollapsingToolbarBaseActivity {
+public class TouchGesturesActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getFragmentManager().beginTransaction().replace(R.id.content_frame,
+        getFragmentManager().beginTransaction().replace(android.R.id.content,
                 new TouchGestures()).commit();
+        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

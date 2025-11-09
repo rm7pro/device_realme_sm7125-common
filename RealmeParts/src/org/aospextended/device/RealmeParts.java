@@ -16,6 +16,7 @@
 
 package org.aospextended.device;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -42,10 +43,6 @@ import androidx.preference.TwoStatePreference;
 import org.aospextended.device.gestures.TouchGestures;
 import org.aospextended.device.gestures.TouchGesturesActivity;
 import org.aospextended.device.doze.DozeSettingsActivity;
-import org.aospextended.device.display.DisplaySettingsFragment;
-import org.aospextended.device.display.DisplaySettingsActivity;
-import org.aospextended.device.misc.MiscSettingsFragment;
-import org.aospextended.device.misc.MiscSettingsActivity;
 import org.aospextended.device.vibration.VibratorStrengthPreference;
 
 import java.text.DateFormat;
@@ -67,12 +64,10 @@ public class RealmeParts extends PreferenceFragment implements
     private static final String TAG = "RealmeParts";
 
     private Context mContext;
-    private SharedPreferences mPreference;
+    private SharedPreferences mPreferences;
 
     private Preference mDozePref;
     private Preference mGesturesPref;
-    private Preference mDisplayPref;
-    private Preference mMiscPref;
     private VibratorStrengthPreference mVibratorStrength;
 
     @Override
@@ -104,25 +99,6 @@ public class RealmeParts extends PreferenceFragment implements
             }
         });
 
-        mDisplayPref = findPreference("display_settings");
-        mDisplayPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-             @Override
-             public boolean onPreferenceClick(Preference preference) {
-                 Intent intent = new Intent(getContext(), DisplaySettingsActivity.class);
-                 startActivity(intent);
-                 return true;
-            }
-        });
-
-        mMiscPref = findPreference("misc_settings");
-        mMiscPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-             @Override
-             public boolean onPreferenceClick(Preference preference) {
-                 Intent intent = new Intent(getContext(), MiscSettingsActivity.class);
-                 startActivity(intent);
-                 return true;
-            }
-        });
 
 /*        PreferenceCategory vib_strength = (PreferenceCategory) getPreferenceScreen()
                  .findPreference("vib_strength_category");

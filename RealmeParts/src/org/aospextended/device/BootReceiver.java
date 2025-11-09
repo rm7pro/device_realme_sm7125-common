@@ -21,44 +21,18 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.hardware.display.DisplayManager;
-import android.os.IBinder;
-import android.view.Display;
 import android.content.SharedPreferences;
-import android.os.SystemProperties;
 import android.content.pm.PackageManager;
 import android.content.SharedPreferences;
-import android.view.Display.HdrCapabilities;
 
 import androidx.preference.PreferenceManager;
 
-import org.aospextended.device.RealmeParts;
 import org.aospextended.device.gestures.TouchGestures;
 import org.aospextended.device.util.Utils;
 import org.aospextended.device.doze.DozeUtils;
 import org.aospextended.device.vibration.VibratorStrengthPreference;
-import org.aospextended.device.camerahelper.CameraService;
-import org.aospextended.device.utils.FileUtils;
 
 public class BootReceiver extends BroadcastReceiver {
-
-    private static final String DC_DIMMING_ENABLE_KEY = "dc_dimming_enable";
-    private static final String DC_DIMMING_NODE = "/sys/kernel/oppo_display/dimlayer_bl_en";
-    private static final String HBM_ENABLE_KEY = "hbm_mode";
-    private static final String HBM_NODE = "/sys/kernel/oppo_display/hbm";
-    private static final String PREF_OTG = "otg";
-    private static final String OTG_PATH = "/sys/class/power_supply/usb/otg_switch";
-    private static final String GAMESWITCH_ENABLE_KEY = "game_switch";
-    private static final String GAMESWITCH_NODE = "/proc/touchpanel/game_switch_enable";
-    private static final String FASTCHARGE_ENABLE_KEY = "fast_charge";
-    private static final String FASTCHARGE_NODE = "/sys/class/qcom-battery/restrict_chg";
-    private static final String FORCE_FASTCHARGE_ENABLE_KEY = "force_fastcharge";
-    private static final String FORCE_FASTCHARGE_NODE = "/sys/module/oplus_charger/parameters/force_fast_charge";
-    private static final String SKIPPCC_ENABLE_KEY = "skip_pcc";
-    private static final String SKIPPCC_NODE = "/sys/kernel/oppo_display/skip_pcc_override";
-    private static final String BATTSAVER_ENABLE_KEY = "battery_saver";
-    private static final String BATTSAVER_NODE = "/sys/module/battery_saver/parameters/enabled";
-
 
     @Override
     public void onReceive(final Context context, Intent intent) {
@@ -71,50 +45,7 @@ public class BootReceiver extends BroadcastReceiver {
                 TouchGestures.PREF_DT2W_ENABLE, true));
         }
         DozeUtils.checkDozeService(context);
-        String prj = Utils.getFileValue("/proc/oplusVersion/prjName", "");
-        if ("206B1".equals(prj)) {
-            context.startService(new Intent(context, CameraService.class));
-        }
 //        VibratorStrengthPreference.restore(context);
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean dcDimmingEnabled = sharedPrefs.getBoolean(DC_DIMMING_ENABLE_KEY, false);
-        try {
-            FileUtils.writeLine(DC_DIMMING_NODE, dcDimmingEnabled ? "1" : "0");
-        } catch(Exception e) {}
-        boolean hbmEnabled = sharedPrefs.getBoolean(HBM_ENABLE_KEY, false);
-        try {
-            FileUtils.writeLine(HBM_NODE, hbmEnabled ? "1" : "0");
-        } catch(Exception e) {}
-        boolean OTGEnabled = sharedPrefs.getBoolean(PREF_OTG, false);
-        try {
-            FileUtils.writeLine(OTG_PATH, OTGEnabled ? "1" : "0");
-        } catch(Exception e) {}
-        boolean GameSwitchEnabled = sharedPrefs.getBoolean(GAMESWITCH_ENABLE_KEY, false);
-        try {
-            FileUtils.writeLine(GAMESWITCH_NODE, GameSwitchEnabled ? "1" : "0");
-        } catch(Exception e) {}
-        boolean FastChargeEnabled = sharedPrefs.getBoolean(FASTCHARGE_ENABLE_KEY, false);
-        try {
-            FileUtils.writeLine(FASTCHARGE_NODE, FastChargeEnabled ? "1" : "0");
-        } catch(Exception e) {}
-        boolean ForceFastChargeEnabled = sharedPrefs.getBoolean(FORCE_FASTCHARGE_ENABLE_KEY, false);
-        try {
-            FileUtils.writeLine(FORCE_FASTCHARGE_NODE, ForceFastChargeEnabled ? "1" : "0");
-        } catch(Exception e) {}
-        boolean SkipPccEnabled = sharedPrefs.getBoolean(SKIPPCC_ENABLE_KEY, false);
-        try {
-            FileUtils.writeLine(SKIPPCC_NODE, SkipPccEnabled ? "1" : "0");
-        } catch(Exception e) {}
-        boolean BatterySaverEnabled = sharedPrefs.getBoolean(BATTSAVER_ENABLE_KEY, false);
-        try {
-            FileUtils.writeLine(BATTSAVER_NODE, BatterySaverEnabled ? "Y" : "N");
-        } catch(Exception e) {}
-
-        // Override HDR types
-        final DisplayManager displayManager = context.getSystemService(DisplayManager.class);
-        displayManager.overrideHdrTypes(Display.DEFAULT_DISPLAY, new int[]{
-                HdrCapabilities.HDR_TYPE_DOLBY_VISION, HdrCapabilities.HDR_TYPE_HDR10,
-                HdrCapabilities.HDR_TYPE_HLG, HdrCapabilities.HDR_TYPE_HDR10_PLUS});
     }
 
     private void enableComponent(Context context, String component) {

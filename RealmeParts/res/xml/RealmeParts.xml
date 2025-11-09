@@ -1,45 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
         android:key="gestures_category"
         android:title="@string/gestures">
 
-        <Preference
-            android:key="screen_gestures"
-            android:summary="@string/gestures_dashboard_summary"
-            android:icon="@drawable/ic_screen_off_gestures"
-            android:title="@string/screen_off_gestures" />
+        <PreferenceScreen
+                android:key="screen_gestures"
+                android:summary="@string/gestures_dashboard_summary"
+                android:title="@string/screen_off_gestures" />
+
     </PreferenceCategory>
     
     <PreferenceCategory
         android:key="doze_category"
         android:title="@string/ambient_display_title">
 
-        <Preference
-            android:key="doze"
-            android:summary="@string/ambient_display_gestures_summary"
-            android:icon="@drawable/ic_ambient_display_gestures"
-            android:title="@string/ambient_display_gestures_title" />
+        <PreferenceScreen
+                android:key="doze"
+                android:summary="@string/ambient_display_gestures_summary"
+                android:title="@string/ambient_display_gestures_title" />
 
-        <Preference 
-            android:key="display_settings"
-            android:icon="@drawable/ic_dcdimming" 
-            android:title="@string/display_settings_title"
-            android:summary="@string/display_settings_summary" />
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:key="misc_category"
-        android:title="@string/misc_title">
-
-        <Preference
-            android:key="misc_settings"
-            android:summary="@string/misc_settings_summary"
-            android:title="@string/misc_settings_title"
-            android:icon="@drawable/ic_misc" />
-    </PreferenceCategory>
 <!--
     <PreferenceCategory
         android:key="vib_strength_category"

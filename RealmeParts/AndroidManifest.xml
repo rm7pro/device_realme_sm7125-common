@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+   	  xmlns:tools="http://schemas.android.com/tools"
           android:sharedUserId="android.uid.system"
           package="org.aospextended.device"
           android:versionCode="1"
           android:versionName="1" >
 
-    <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER" />
     <uses-permission android:name="android.permission.INJECT_EVENTS"/>
     <uses-permission android:name="android.permission.DEVICE_POWER" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 	
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
@@ -21,7 +20,7 @@
         android:targetSdkVersion="24"/>
 
     <application
-            android:icon="@drawable/ic_logo"
+            android:icon="@android:drawable/sym_def_app_icon"
             android:label="@string/RealmeParts"
             android:theme="@style/AppTheme"
             >
@@ -58,7 +57,7 @@
                 android:value="@color/icon_bg_color"/>
             <meta-data
                 android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.homepage" />
+                android:value="com.android.settings.category.ia.system" />
             <meta-data android:name="com.android.settings.summary"
                 android:resource="@string/RealmeParts_summary" />
         </activity-alias>
@@ -82,66 +81,11 @@
                  android:permission="RealmeDozeService">
         </service>
 
-        <service
-            android:name=".display.DcDimmingTileService"
-            android:icon="@drawable/ic_dc_tile"
-            android:label="@string/dc_dimming_enable_title"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
-            <intent-filter>
-                <action
-                    android:name="android.service.quicksettings.action.QS_TILE"/>
-            </intent-filter>
-        </service>
-
-        <service
-            android:name=".display.HBMTileService"
-            android:icon="@drawable/ic_hbm_tile"
-            android:label="@string/hbm_mode_title"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
-            <intent-filter>
-                <action
-                    android:name="android.service.quicksettings.action.QS_TILE"/>
-            </intent-filter>
-        </service>
-
-        <service
-            android:name=".misc.GameSwitchTileService"
-            android:icon="@drawable/ic_gameswitch_tile"
-            android:label="@string/gameswitch_enable_title"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
-            <intent-filter>
-                <action
-                    android:name="android.service.quicksettings.action.QS_TILE"/>
-            </intent-filter>
-        </service>
-
         <activity
             android:name=".doze.DozeSettingsActivity"
-            android:label="@string/ambient_display_gestures_title">
+            android:label="@string/ambient_display_title">
             <intent-filter>
                 <action android:name="org.aospextended.device.DOZE_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <service
-            android:name=".camerahelper.CameraService"
-            android:enabled="true" />
-
-        <activity
-            android:name="org.aospextended.device.display.DisplaySettingsActivity"
-            android:label="@string/display_settings_title">
-            <intent-filter>
-                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name="org.aospextended.device.misc.MiscSettingsActivity"
-            android:label="@string/misc_settings_title">
-            <intent-filter>
-                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

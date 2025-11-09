@@ -28,10 +28,7 @@ import android.view.MenuItem;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceManager;
 
-import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
-import com.android.settingslib.widget.R;
-
-public class RealmePartsActivity extends CollapsingToolbarBaseActivity {
+public class RealmePartsActivity extends Activity {
 
     private RealmeParts mRealmePartsFragment;
 
@@ -39,13 +36,13 @@ public class RealmePartsActivity extends CollapsingToolbarBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTitle("realme Lab");
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Fragment fragment = getFragmentManager().findFragmentById(R.id.content_frame);
+        Fragment fragment = getFragmentManager().findFragmentById(android.R.id.content);
         if (fragment == null) {
             mRealmePartsFragment = new RealmeParts();
             getFragmentManager().beginTransaction()
-                .add(R.id.content_frame, mRealmePartsFragment)
+                .add(android.R.id.content, mRealmePartsFragment)
                 .commit();
         } else {
             mRealmePartsFragment = (RealmeParts) fragment;
@@ -63,4 +60,5 @@ public class RealmePartsActivity extends CollapsingToolbarBaseActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+ 
 }
