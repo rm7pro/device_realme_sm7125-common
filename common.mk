@@ -16,11 +16,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# Get custom stuff
-$(call inherit-product-if-exists, vendor/hotword/google.mk)
-$(call inherit-product-if-exists, packages/apps/RealmeDirac/dirac.mk)
-$(call inherit-product-if-exists, packages/apps/ViPER4AndroidFX/config.mk)
-
 # AID/fs configs
 PRODUCT_PACKAGES += \
     fs_config_files
@@ -196,11 +191,6 @@ PRODUCT_PACKAGES += \
     libhidltransport.vendor \
     libhwbinder \
     libhwbinder.vendor
-
-# Hotword Enrollment
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/hotword/hotword-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/hotword-hiddenapi-package-whitelist.xml \
-    $(LOCAL_PATH)/configs/hotword/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
 
 # Init scripts
 PRODUCT_COPY_FILES += \
