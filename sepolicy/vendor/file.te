@@ -13,6 +13,9 @@ type proc_oppo_fp, fs_type, proc_type;
 # Camera
 type vendor_persist_camera_file, file_type;
 
+# Bypass Charging
+type sysfs_battery_writable, sysfs_type, fs_type;
+
 # Devinfo
 type proc_devinfo, fs_type, proc_type;
 
@@ -33,5 +36,5 @@ type proc_fw_update, fs_type, proc_type;
 
 type proc_decimal, fs_type, proc_type;
 
-# Kernelspace battery saver
-type sysfs_battery_saver, fs_type, sysfs_type;
+#oppo nv
+type rm_vendor_radio_vendor_data_file, core_data_file_type, data_file_type, file_type;
