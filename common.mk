@@ -671,4 +671,6 @@ PRODUCT_PACKAGES += \
     libadf.vendor \
     libstdc++_vendor \
     vendor.qti.hardware.camera.device@1.0.vendor \
-    libtinyxml.vendor
+    libtinyxml.vendor \
+    libpng.vendor \
+    libsqlite.vendor    
