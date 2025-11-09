@@ -145,7 +145,7 @@ USE_DEX2OAT_DEBUG := false
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.3-service.clearkey
+    android.hardware.drm-service.clearkey
 
 # Enable whole-program R8 Java optimizations for SystemUI and system_server
 SYSTEM_OPTIMIZE_JAVA := true
