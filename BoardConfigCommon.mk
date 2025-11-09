@@ -239,6 +239,7 @@ VENDOR_SECURITY_PATCH := 2020-10-01
 
 # Sepolicy
 SELINUX_IGNORE_NEVERALLOWS := true
+include device/lineage/sepolicy/libperfmgr/sepolicy.mk
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
